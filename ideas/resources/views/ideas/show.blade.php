@@ -7,20 +7,14 @@
     </div>
     <div class="col-6">
         @include('shared.success-message')
-        @include('shared.submitIdea')
         <hr>
-        @foreach($ideas as $idea)
-            <div class="mt-3">
-                @include('shared.idea-card')
-            </div>
-            @endforeach
-        <div class="mt-3"></div>
-        {{ $ideas->links() }}
+        <div class="mt-3">
+            @include('shared.idea-card')
+        </div>
     </div>
     <div class="col-3">
         @include('shared.search-bar')
         @include('shared.follow-box')
-        
     </div>
 </div>
 @endsection
