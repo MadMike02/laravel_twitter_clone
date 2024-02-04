@@ -12,3 +12,4 @@
 - `php artisan migrate`
 - `php artisan make:migration tableName`
 - `php artisan make:model MyMode`
+- `php artisan make:mode Comment -m -c` 
