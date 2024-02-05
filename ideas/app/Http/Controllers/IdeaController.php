@@ -14,32 +14,36 @@ class IdeaController extends Controller
 
     public function store(Request $request)
     {
-        $request->validate([
+        $validated = $request->validate([
             'content' => 'required|min:5|max:240'
         ]);
-
-        $idea = new Idea([
-            'content' => $request->get('content')
-        ]);
-        $idea->save();
+        //current logged in user
+        $validated['user_id'] = auth()->id();
+        //only create ideas with the fields which are validated
+        Idea::create($validated);
 
         return redirect()->route('dashboard')->with('success', 'Idea created successfully!');
     }
 
     public function update(Idea $idea)
     {
-        request()->validate([
+        if (auth()->id() != $idea->user_id) {
+            abort(404, "no authorized");
+        }
+
+        $validated = request()->validate([
             'content' => 'required|min:5|max:240'
         ]);
-
-        $idea->content = request()->get('content');
-        $idea->save();
+        $idea->update($validated);
 
         return redirect()->route('ideas.show', $idea->id)->with('success', 'Idea Updated successfully!');
     }
 
     public function edit(Request $request, Idea $idea)
     {
+        if (auth()->id() != $idea->user_id) {
+            abort(404, "no authorized");
+        }
         $editing = true;
 
         return view('ideas.show', compact('idea', 'editing'));
@@ -47,6 +51,9 @@ class IdeaController extends Controller
 
     public function destroy(Idea $idea)
     {
+        if (auth()->id() != $idea->user_id) {
+            abort(404, "no authorized");
+        }
         $idea->delete();
         
         return redirect()->route('dashboard')->with('success', 'Idea deleted successfully!');

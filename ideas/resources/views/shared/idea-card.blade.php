@@ -3,9 +3,9 @@
         <div class="d-flex align-items-center justify-content-between">
             <div class="d-flex align-items-center">
                 <img style="width:50px" class="me-2 avatar-sm rounded-circle"
-                    src="https://api.dicebear.com/6.x/fun-emoji/svg?seed=Mario" alt="Mario Avatar">
+                    src="https://api.dicebear.com/6.x/fun-emoji/svg?seed={{ $idea->user->name }}" alt="Mario Avatar">
                 <div>
-                    <h5 class="card-title mb-0"><a href="#"> Mario
+                    <h5 class="card-title mb-0"><a href="#"> {{ $idea->user->name }}
                         </a></h5>
                 </div>
             </div>
@@ -13,9 +13,11 @@
                 <form method="post" action="{{ route('ideas.destroy', $idea->id) }}">
                     @csrf
                     @method('delete')
-                    <a class="mr-2" href="{{ route('ideas.edit', $idea->id) }}">edit</a>
                     <a class="mr-2" href="{{ route('ideas.show', $idea->id) }}">view</a>
-                    <button class="btn btn-danger btn-sm">X</button>
+                    @auth()
+                        <a class="mr-2" href="{{ route('ideas.edit', $idea->id) }}">edit</a>
+                        <button class="btn btn-danger btn-sm">X</button>
+                    @endauth
                 </form>
             </div>
         </div>
