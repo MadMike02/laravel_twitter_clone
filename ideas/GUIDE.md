@@ -13,3 +13,4 @@
 - `php artisan make:migration tableName`
 - `php artisan make:model MyMode`
 - `php artisan make:mode Comment -m -c` 
+- `php artisan make:controller UserController -r` -- resource controller

@@ -4,6 +4,7 @@ use App\Http\Controllers\CommentController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\IdeaController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -30,6 +31,8 @@ Route::group(['prefix' => 'ideas/', 'as' => 'ideas.', 'middleware' => ['auth']],
         Route::post('/{idea}/comments', [CommentController::class, 'store'])->name('comments.store');
     });
 });
+
+Route::resource('users', UserController::class)->only('show', 'edit', 'update')->middleware('auth');
 
 Route::get('/profile', [ProfileController::class, 'index']);
 Route::get('/terms', function () {

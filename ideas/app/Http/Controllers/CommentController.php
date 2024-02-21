@@ -10,6 +10,10 @@ class CommentController extends Controller
 {
     public function store(Idea $idea)
     {
+        // $validated = request()->validate([
+        //     'content' => 'required'
+        // ]);
+        
         $comment = new Comment();
         $comment->idea_id = $idea->id;
         $comment->user_id = auth()->id();
