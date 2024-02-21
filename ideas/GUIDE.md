@@ -14,3 +14,4 @@
 - `php artisan make:model MyMode`
 - `php artisan make:mode Comment -m -c` 
 - `php artisan make:controller UserController -r` -- resource controller
+- `php artisan storage:link` -- connect storage path with public folder

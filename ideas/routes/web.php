@@ -34,7 +34,7 @@ Route::group(['prefix' => 'ideas/', 'as' => 'ideas.', 'middleware' => ['auth']],
 
 Route::resource('users', UserController::class)->only('show', 'edit', 'update')->middleware('auth');
 
-Route::get('/profile', [ProfileController::class, 'index']);
+Route::get('/profile', [UserController::class, 'profile'])->middleware('auth')->name('profile');
 Route::get('/terms', function () {
     return view('terms');
 });
