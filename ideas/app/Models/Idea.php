@@ -16,6 +16,10 @@ class Idea extends Model
     //     'updated_at'
     // ];
 
+    //globally load each time when Idea model is loaded
+    // eagerload
+    protected $with = [ 'user:id,name,image', 'comments.user:id,name,image'];
+
     //for mass assigned enabled
     protected $fillable = [
         'content',

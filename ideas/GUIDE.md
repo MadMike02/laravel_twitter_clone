@@ -16,3 +16,7 @@
 - `php artisan make:controller UserController -r` -- resource controller
 - `php artisan storage:link` -- connect storage path with public folder
 - `php artisan make:mail WelcomeEmail` - mail class
+
+## PACKAGES
+
+- composer require barryvdh/laravel-debugbar --dev

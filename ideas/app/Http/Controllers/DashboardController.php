@@ -12,6 +12,8 @@ class DashboardController extends Controller
     {
         //for previewing email template in front
         // return new WelcomeEmail(auth()->user());
+        // $ideas = Idea::with('user', 'comments.user')->orderBy('created_at', 'desc');
+        // $ideas = Idea::without('user', 'comments.user')->orderBy('created_at', 'desc');
         $ideas = Idea::orderBy('created_at', 'desc');
 
         if (request()->has('search')) {
