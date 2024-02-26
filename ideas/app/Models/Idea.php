@@ -23,7 +23,6 @@ class Idea extends Model
     //for mass assigned enabled
     protected $fillable = [
         'content',
-        'like',
         'user_id'
     ];
 
@@ -37,5 +36,10 @@ class Idea extends Model
     {
         //reverse of one to many i.e. many ideas can be relate to one user
          return $this->belongsTo(User::class);
+    }
+
+    public function likes() 
+    {
+        return $this->belongsToMany(User::class, 'idea_like')->withTimestamps();
     }
 }

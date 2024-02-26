@@ -45,6 +45,11 @@ class User extends Authenticatable
         'password' => 'hashed',
     ];
 
+    public function likes() 
+    {
+        return $this->belongsToMany(Idea::class, 'idea_like')->withTimestamps();
+    }
+
     public function ideas()
     {
         return $this->hasMany(Idea::class)->latest();
@@ -55,6 +60,10 @@ class User extends Authenticatable
         return $this->hasMany(Comment::class)->latest();
     }
 
+    public function likesIdea(Idea $idea)
+    {
+       return $this->likes()->where('idea_id', $idea->id)->exists();
+    }
     public function follows(User $user)
     {
        return $this->followings()->where('user_id', $user->id)->exists();
