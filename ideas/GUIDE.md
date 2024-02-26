@@ -16,6 +16,9 @@
 - `php artisan make:controller UserController -r` -- resource controller
 - `php artisan storage:link` -- connect storage path with public folder
 - `php artisan make:mail WelcomeEmail` - mail class
+- `php artisan  make:controller MyInvokableController --invokable` -- invokable controller that contains only one method __invoke and it performs only one action
+
+- `php artisan make:migration MigrationName`
 
 ## PACKAGES
 

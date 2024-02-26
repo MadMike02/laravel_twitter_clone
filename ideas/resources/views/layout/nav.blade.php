@@ -17,6 +17,11 @@
                         </li>
                     @endguest
                     @auth()
+                        @if(Auth::user()->is_admin)
+                        <li class="nav-item">
+                            <a class="{{ Route::is('admin') ?  'active' : ''}} nav-link" href="{{route('admin')}}">Admin</a>
+                        </li>
+                        @endif
                         <li class="nav-item">
                             <a class="{{ Route::is('profile') ?  'active' : ''}} nav-link" href="{{route('profile')}}">{{ Auth::user()->email }}</a>
                         </li>
