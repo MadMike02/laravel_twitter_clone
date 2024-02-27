@@ -14,6 +14,8 @@ class DashboardController extends Controller
         // return new WelcomeEmail(auth()->user());
         // $ideas = Idea::with('user', 'comments.user')->orderBy('created_at', 'desc');
         // $ideas = Idea::without('user', 'comments.user')->orderBy('created_at', 'desc');
+        // $ideas = Idea::withCount('likes')->orderBy('created_at', 'desc');
+        
         $ideas = Idea::orderBy('created_at', 'desc');
 
         if (request()->has('search')) {

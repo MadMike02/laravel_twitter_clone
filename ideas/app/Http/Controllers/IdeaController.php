@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\CreateIdeaRequest;
-use App\Http\Requests\UpdateIdeaRequest;
 use App\Models\Idea;
 use Illuminate\Http\Request;
+use App\Http\Requests\CreateIdeaRequest;
+use App\Http\Requests\UpdateIdeaRequest;
 
 class IdeaController extends Controller
 {
@@ -32,7 +32,6 @@ class IdeaController extends Controller
         // }
 
         $this->authorize('update', $idea);
-
         $validated = $request->validated();
         $idea->update($validated);
 
@@ -45,7 +44,6 @@ class IdeaController extends Controller
         //     abort(404, "no authorized");
         // }
         $this->authorize('update', $idea);
-
         $editing = true;
 
         return view('ideas.show', compact('idea', 'editing'));
@@ -57,7 +55,6 @@ class IdeaController extends Controller
         //     abort(404, "no authorized");
         // }
         $this->authorize('delete', $idea);
-
         $idea->delete();
         
         return redirect()->route('dashboard')->with('success', 'Idea deleted successfully!');

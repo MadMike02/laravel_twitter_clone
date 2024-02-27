@@ -20,6 +20,9 @@ class Idea extends Model
     // eagerload
     protected $with = [ 'user:id,name,image', 'comments.user:id,name,image'];
 
+    //eager load count of number of relationships
+    protected $withCount = ['likes'];
+
     //for mass assigned enabled
     protected $fillable = [
         'content',
