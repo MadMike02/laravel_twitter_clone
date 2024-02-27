@@ -19,7 +19,7 @@
 - `php artisan  make:controller MyInvokableController --invokable` -- invokable controller that contains only one method __invoke and it performs only one action
 - `php artisan make:policy IdeaPolicy --model=Idea` -- policies
 
-- `php artisan make:migration MigrationName`
+- `php artisan make:request UpdateUserRequest` -- form request
 
 ## PACKAGES
 

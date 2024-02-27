@@ -3,7 +3,7 @@
         <div class="d-flex align-items-center justify-content-between">
             <div class="d-flex align-items-center">
                 <img style="width:150px" class="me-3 avatar-sm rounded-circle"
-                    src="{{ $user->getImageUrl() }}" alt="Mario Avatar">
+                    src="{{ $user->getImageUrl() }}" alt="{{ $user->name }}">
                 <div>
                         <h3 class="card-title mb-0"><a href="#"> {{ $user->name }}
                             </a></h3>
