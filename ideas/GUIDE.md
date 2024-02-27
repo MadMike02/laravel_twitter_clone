@@ -20,10 +20,15 @@
 - `php artisan make:policy IdeaPolicy --model=Idea` -- policies
 
 - `php artisan make:request UpdateUserRequest` -- form request
+- `php artisan lang:publish` -- translation folder
 
 ## PACKAGES
 
 - composer require barryvdh/laravel-debugbar --dev
+
+## TRANSLATIONS
+- make seprate file for each language and add translations in associative array.
+- {{ __('fileName.key') }} or {{trans('fileName.key')}} or @lang('filename.key')
 
 ## REALTIONS
 - One on One

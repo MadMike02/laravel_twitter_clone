@@ -17,5 +17,5 @@
 @endauth
 
 @guest()
-Login to share ideas
+<h4>{{ __('ideas.Login_to_share') }} </h4>
 @endguest()
