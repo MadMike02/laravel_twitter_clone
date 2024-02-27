@@ -54,4 +54,5 @@ Route::get('/terms', function () {
 })->name('terms');
 
 //admin routes
-Route::get('/admin', [AdminDashboardController::class, 'index'])->middleware('auth', 'admin')->name('admin');
+//gate check with middleware - can::admin
+Route::get('/admin', [AdminDashboardController::class, 'index'])->middleware('auth', 'can::admin')->name('admin');
