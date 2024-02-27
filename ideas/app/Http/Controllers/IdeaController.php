@@ -31,7 +31,7 @@ class IdeaController extends Controller
         //     abort(404, "not authorized");
         // }
 
-        $this->authorize('idea.edit', $idea);
+        $this->authorize('update', $idea);
 
         $validated = request()->validate([
             'content' => 'required|min:5|max:240'
@@ -46,7 +46,7 @@ class IdeaController extends Controller
         // if (auth()->id() != $idea->user_id) {
         //     abort(404, "no authorized");
         // }
-        $this->authorize('idea.edit', $idea);
+        $this->authorize('update', $idea);
 
         $editing = true;
 
@@ -58,7 +58,7 @@ class IdeaController extends Controller
         // if (auth()->id() != $idea->user_id) {
         //     abort(404, "no authorized");
         // }
-        $this->authorize('idea.delete', $idea);
+        $this->authorize('delete', $idea);
 
         $idea->delete();
         

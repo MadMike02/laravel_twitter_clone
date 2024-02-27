@@ -11,7 +11,7 @@
             </div>
             <div>
                 <a class="mr-2" href="{{ route('ideas.show', $idea->id) }}">view</a>
-                @can('idea.edit', $idea)
+                @can('update', $idea)
                     <form method="post" action="{{ route('ideas.destroy', $idea->id) }}">
                         @csrf
                         @method('delete')
